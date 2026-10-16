@@ -59,30 +59,30 @@ async function Feed({ searchParams }: Props) {
       </Suspense>
 
       {/* Feed Title */}
-      <div className="flex justify-between items-center">
-        <h2 className="text-2xl font-bold text-gray-800">
-          {hasActiveFilters ? 'Filtered Results' : 'Recent Items'}
+      <div className="flex justify-between items-baseline">
+        <h2 className="text-lg font-semibold text-gray-900 tracking-tight">
+          {hasActiveFilters ? 'Filtered results' : 'Recent items'}
         </h2>
-        <span className="text-sm text-gray-500">
+        <span className="text-sm text-gray-500 tabular-nums">
           {feedItems.length} item{feedItems.length === 1 ? '' : 's'}
         </span>
       </div>
 
       {/* Grid Layout */}
       {feedItems.length === 0 ? (
-        <div className="bg-white border border-gray-200 rounded-2xl p-16 text-center text-gray-400">
-          <PackageSearch className="w-12 h-12 mx-auto mb-4 text-gray-300" />
-          <p className="font-medium text-gray-600">
+        <div className="bg-white border border-gray-200 rounded-xl p-16 text-center">
+          <PackageSearch className="w-10 h-10 mx-auto mb-4 text-gray-300" aria-hidden="true" />
+          <p className="font-medium text-gray-900">
             {hasActiveFilters ? 'No items match your filters.' : 'No items posted yet.'}
           </p>
-          <p className="text-sm mt-1">
+          <p className="text-sm text-gray-500 mt-1">
             {hasActiveFilters
               ? 'Try a different search term or clear the filters.'
               : 'Be the first to post something lost or found!'}
           </p>
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {feedItems.map((item) => (
             <ItemCard key={item.id} item={item} />
           ))}
@@ -96,11 +96,11 @@ export default function Home({ searchParams }: Props) {
   return (
     <div className="space-y-8">
       {/* Hero Header */}
-      <div className="bg-white p-8 sm:p-12 rounded-2xl shadow-sm border border-gray-200 text-center">
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-gray-900 mb-4">
+      <div className="py-6 sm:py-10 text-center">
+        <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight text-gray-900 mb-3">
           Campus Lost &amp; Found
         </h1>
-        <p className="text-lg text-gray-500 max-w-2xl mx-auto">
+        <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
           Did you lose your ID card? Found a stray flash drive? Connect with your campus
           community to reclaim your stuff.
         </p>
@@ -109,7 +109,7 @@ export default function Home({ searchParams }: Props) {
       {/* Feed streams over the static shell; searchParams + cookies resolve inside. */}
       <Suspense
         fallback={
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {Array.from({ length: 3 }).map((_, i) => (
               <div key={i} className="bg-white border border-gray-200 rounded-xl h-80 animate-pulse" />
             ))}

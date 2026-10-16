@@ -1,8 +1,14 @@
 import Link from 'next/link'
-import { PlusCircle, User } from 'lucide-react'
+import { Plus, UserRound } from 'lucide-react'
 import { connection } from 'next/server'
 import { createClient } from '@/utils/supabase/server'
 import NavbarUserMenu from './NavbarUserMenu'
+
+const navLinks = [
+  { href: '/', label: 'All Items' },
+  { href: '/?type=lost', label: 'Lost' },
+  { href: '/?type=found', label: 'Found' },
+]
 
 export default async function Navbar() {
   // The Navbar is user-aware: render per request. Supabase's session check
@@ -15,26 +21,38 @@ export default async function Navbar() {
   } = await supabase.auth.getUser()
 
   return (
-    <nav className="border-b bg-white shadow-sm sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16 items-center">
+    <nav className="border-b border-gray-200 bg-white sticky top-0 z-50">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between h-16 items-center gap-4">
 
           {/* Logo & Main Links */}
-          <div className="flex items-center gap-8">
-            <Link href="/" className="text-2xl font-extrabold text-blue-600 tracking-tight">
+          <div className="flex items-center gap-6 sm:gap-8 min-w-0">
+            <Link
+              href="/"
+              className="text-lg font-semibold text-gray-900 tracking-tight whitespace-nowrap"
+            >
               CampusTrace
             </Link>
-            <div className="hidden md:flex gap-6 text-gray-600 font-medium">
-              <Link href="/" className="hover:text-blue-600 transition">All Items</Link>
-              <Link href="/?type=lost" className="hover:text-blue-600 transition">Lost</Link>
-              <Link href="/?type=found" className="hover:text-blue-600 transition">Found</Link>
-            </div>
+            <nav aria-label="Primary" className="hidden md:flex items-center gap-1">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  className="px-3 py-2 rounded-lg text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition-colors"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
           </div>
 
           {/* Action Buttons */}
-          <div className="flex items-center gap-4">
-            <Link href="/items/new" className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition font-medium shadow-sm">
-              <PlusCircle className="w-5 h-5" />
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+            <Link
+              href="/items/new"
+              className="flex items-center gap-1.5 bg-gray-900 text-white px-3.5 py-2 rounded-lg hover:bg-gray-800 transition-colors font-medium text-sm"
+            >
+              <Plus className="w-4 h-4" aria-hidden="true" />
               <span className="hidden sm:inline">Post Item</span>
             </Link>
 
@@ -45,8 +63,12 @@ export default async function Navbar() {
                 username={user.user_metadata?.username}
               />
             ) : (
-              <Link href="/login" aria-label="Sign in" className="p-2 text-gray-500 hover:text-blue-600 hover:bg-blue-50 rounded-full transition">
-                <User className="w-6 h-6" />
+              <Link
+                href="/login"
+                aria-label="Sign in"
+                className="p-2 rounded-lg text-gray-500 hover:text-gray-900 hover:bg-gray-100 transition-colors"
+              >
+                <UserRound className="w-5 h-5" aria-hidden="true" />
               </Link>
             )}
           </div>

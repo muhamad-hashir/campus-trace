@@ -91,15 +91,15 @@ export default function DashboardItemRow({ item }: { item: DashboardItem }) {
   }
 
   const typeBadge = resolved
-    ? 'bg-gray-200 text-gray-600'
+    ? 'border-gray-200 bg-white text-gray-500'
     : item.type === 'LOST'
-      ? 'bg-red-100 text-red-700'
-      : 'bg-green-100 text-green-700'
+      ? 'border-red-200 bg-red-50 text-red-700'
+      : 'border-emerald-200 bg-emerald-50 text-emerald-700'
 
   return (
     <div
-      className={`bg-white rounded-xl border shadow-sm overflow-hidden transition ${
-        resolved ? 'border-gray-200 opacity-80' : 'border-gray-200 hover:shadow-md'
+      className={`bg-white rounded-xl border overflow-hidden transition-colors ${
+        resolved ? 'border-gray-200 opacity-80' : 'border-gray-200 hover:border-gray-300'
       }`}
     >
       <div className="flex flex-col sm:flex-row">
@@ -125,16 +125,16 @@ export default function DashboardItemRow({ item }: { item: DashboardItem }) {
         <div className="flex-grow p-4">
           <div className="flex flex-wrap items-center gap-2 mb-1.5">
             <span
-              className={`text-xs font-bold px-2 py-0.5 rounded uppercase tracking-wider ${typeBadge}`}
+              className={`text-[11px] font-semibold px-2 py-0.5 rounded-full border uppercase tracking-wide ${typeBadge}`}
             >
               {resolved ? 'Resolved' : item.type}
             </span>
-            <span className="text-xs text-gray-400 font-medium">{item.category}</span>
+            <span className="text-xs text-gray-500 font-medium">{item.category}</span>
           </div>
 
-          <Link href={`/items/${item.id}`} className="hover:text-blue-600 transition">
+          <Link href={`/items/${item.id}`} className="hover:text-gray-600 transition-colors">
             <h3
-              className={`font-bold text-lg text-gray-900 ${
+              className={`font-semibold text-base text-gray-900 ${
                 resolved ? 'line-through text-gray-500' : ''
               }`}
             >
@@ -144,11 +144,11 @@ export default function DashboardItemRow({ item }: { item: DashboardItem }) {
 
           <div className="flex flex-wrap text-sm text-gray-500 gap-x-4 gap-y-1 mt-1">
             <span className="flex items-center gap-1">
-              <MapPin className="w-3.5 h-3.5" />
+              <MapPin className="w-3.5 h-3.5" aria-hidden="true" />
               {item.location}
             </span>
             <span className="flex items-center gap-1">
-              <Calendar className="w-3.5 h-3.5" />
+              <Calendar className="w-3.5 h-3.5" aria-hidden="true" />
               {item.date_occurred}
             </span>
           </div>
@@ -167,10 +167,10 @@ export default function DashboardItemRow({ item }: { item: DashboardItem }) {
             onClick={toggleResolved}
             disabled={pending !== 'none'}
             title={resolved ? 'Mark as open again' : 'Mark as resolved'}
-            className={`flex-1 sm:flex-none flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-lg text-sm font-medium transition disabled:opacity-50 ${
+            className={`flex-1 sm:flex-none flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-lg border text-sm font-medium transition-colors disabled:opacity-50 ${
               resolved
-                ? 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                : 'bg-green-600 text-white hover:bg-green-700'
+                ? 'bg-white border-gray-200 text-gray-700 hover:bg-gray-50'
+                : 'bg-gray-900 border-gray-900 text-white hover:bg-gray-800'
             }`}
           >
             {pending === 'resolve' || pending === 'reopen' ? (
@@ -189,7 +189,7 @@ export default function DashboardItemRow({ item }: { item: DashboardItem }) {
                 type="button"
                 onClick={handleDelete}
                 disabled={pending !== 'none'}
-                className="flex-1 bg-red-600 text-white px-3 py-2 rounded-lg text-sm font-medium hover:bg-red-700 transition disabled:opacity-50"
+                className="flex-1 bg-red-600 text-white px-3 py-2 rounded-lg text-sm font-medium hover:bg-red-700 transition-colors disabled:opacity-50"
               >
                 {pending === 'delete' ? (
                   <Loader2 className="w-4 h-4 animate-spin mx-auto" />
@@ -202,6 +202,7 @@ export default function DashboardItemRow({ item }: { item: DashboardItem }) {
                 onClick={() => setConfirmingDelete(false)}
                 disabled={pending !== 'none'}
                 className="px-2 py-2 text-sm text-gray-500 hover:text-gray-700 disabled:opacity-50"
+                aria-label="Cancel delete"
               >
                 ✕
               </button>
@@ -212,7 +213,7 @@ export default function DashboardItemRow({ item }: { item: DashboardItem }) {
               onClick={() => setConfirmingDelete(true)}
               disabled={pending !== 'none'}
               title="Delete this post"
-              className="flex-1 sm:flex-none flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-lg text-sm font-medium text-red-600 bg-red-50 hover:bg-red-100 transition disabled:opacity-50"
+              className="flex-1 sm:flex-none flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-lg border border-gray-200 bg-white text-sm font-medium text-red-600 hover:bg-red-50 hover:border-red-200 transition-colors disabled:opacity-50"
             >
               <Trash2 className="w-4 h-4" />
               Delete

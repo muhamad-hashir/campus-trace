@@ -4,7 +4,6 @@ import { useState } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import { createClient } from '@/utils/supabase/client'
-import { LogIn } from 'lucide-react'
 
 export default function LoginForm() {
   const router = useRouter()
@@ -41,80 +40,81 @@ export default function LoginForm() {
   }
 
   return (
-    <div className="max-w-md mx-auto my-10">
-      <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-200">
-        <div className="text-center mb-8">
-          <div className="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-            <LogIn className="w-6 h-6" />
-          </div>
-          <h1 className="text-2xl font-extrabold text-gray-900">Welcome back</h1>
-          <p className="text-gray-500 mt-1">Sign in to your CampusTrace account</p>
+    <div className="max-w-sm mx-auto my-8 sm:my-16">
+      <div className="mb-8">
+        <h1 className="text-2xl font-semibold tracking-tight text-gray-900">Welcome back</h1>
+        <p className="text-gray-600 mt-1 text-sm">Sign in to your CampusTrace account</p>
+      </div>
+
+      <form onSubmit={handleLogin} className="space-y-5">
+        <div>
+          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1.5">
+            Email
+          </label>
+          <input
+            id="email"
+            type="email"
+            required
+            autoComplete="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="you@university.edu"
+            className="w-full px-3.5 py-2.5 text-sm text-gray-900 bg-white border border-gray-200 rounded-lg hover:border-gray-300 focus:outline-none focus:border-gray-900 focus:ring-2 focus:ring-gray-900/10 transition-colors"
+          />
         </div>
 
-        <form onSubmit={handleLogin} className="space-y-5">
-          <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1.5">
-              Email
-            </label>
-            <input
-              id="email"
-              type="email"
-              required
-              autoComplete="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="you@university.edu"
-              className="w-full px-4 py-2.5 text-gray-900 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
-            />
-          </div>
+        <div>
+          <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1.5">
+            Password
+          </label>
+          <input
+            id="password"
+            type="password"
+            required
+            autoComplete="current-password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="••••••••"
+            className="w-full px-3.5 py-2.5 text-sm text-gray-900 bg-white border border-gray-200 rounded-lg hover:border-gray-300 focus:outline-none focus:border-gray-900 focus:ring-2 focus:ring-gray-900/10 transition-colors"
+          />
+        </div>
 
-          <div>
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1.5">
-              Password
-            </label>
-            <input
-              id="password"
-              type="password"
-              required
-              autoComplete="current-password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="••••••••"
-              className="w-full px-4 py-2.5 text-gray-900 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
-            />
-          </div>
-
-          {callbackError && (
-            <div className="bg-red-50 border border-red-200 text-red-700 text-sm rounded-lg px-4 py-3">
-              Your sign-in link is invalid or has expired. Please sign in again.
-            </div>
-          )}
-
-          {error && (
-            <div className="bg-red-50 border border-red-200 text-red-700 text-sm rounded-lg px-4 py-3">
-              {error}
-            </div>
-          )}
-
-          <button
-            type="submit"
-            disabled={loading}
-            className="w-full bg-blue-600 text-white py-2.5 rounded-lg font-medium hover:bg-blue-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
+        {callbackError && (
+          <div
+            role="alert"
+            className="bg-red-50 border border-red-200 text-red-700 text-sm rounded-lg px-4 py-3"
           >
-            {loading ? 'Signing in...' : 'Sign In'}
-          </button>
-        </form>
+            Your sign-in link is invalid or has expired. Please sign in again.
+          </div>
+        )}
 
-        <p className="text-sm text-gray-500 text-center mt-6">
-          Don&apos;t have an account?{' '}
-          <Link
-            href="/signup"
-            className="text-blue-600 font-medium hover:text-blue-700 hover:underline"
+        {error && (
+          <div
+            role="alert"
+            className="bg-red-50 border border-red-200 text-red-700 text-sm rounded-lg px-4 py-3"
           >
-            Sign up
-          </Link>
-        </p>
-      </div>
+            {error}
+          </div>
+        )}
+
+        <button
+          type="submit"
+          disabled={loading}
+          className="w-full bg-gray-900 text-white py-2.5 rounded-lg text-sm font-medium hover:bg-gray-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+        >
+          {loading ? 'Signing in...' : 'Sign In'}
+        </button>
+      </form>
+
+      <p className="text-sm text-gray-600 text-center mt-6">
+        Don&apos;t have an account?{' '}
+        <Link
+          href="/signup"
+          className="text-gray-900 font-medium underline underline-offset-2 hover:no-underline"
+        >
+          Sign up
+        </Link>
+      </p>
     </div>
   )
 }

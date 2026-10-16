@@ -4,7 +4,10 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { createClient } from '@/utils/supabase/client'
-import { UserPlus } from 'lucide-react'
+import { MailCheck } from 'lucide-react'
+
+const inputClasses =
+  'w-full px-3.5 py-2.5 text-sm text-gray-900 bg-white border border-gray-200 rounded-lg hover:border-gray-300 focus:outline-none focus:border-gray-900 focus:ring-2 focus:ring-gray-900/10 transition-colors'
 
 export default function SignupPage() {
   const router = useRouter()
@@ -56,19 +59,21 @@ export default function SignupPage() {
 
   if (checkEmail) {
     return (
-      <div className="max-w-md mx-auto my-10">
-        <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-200 text-center">
-          <div className="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-            <UserPlus className="w-6 h-6" />
+      <div className="max-w-sm mx-auto my-8 sm:my-16">
+        <div className="bg-white p-8 rounded-xl border border-gray-200 text-center">
+          <div className="w-10 h-10 bg-gray-900 text-white rounded-full flex items-center justify-center mx-auto mb-4">
+            <MailCheck className="w-5 h-5" aria-hidden="true" />
           </div>
-          <h1 className="text-2xl font-extrabold text-gray-900 mb-2">Confirm your email</h1>
-          <p className="text-gray-500">
+          <h1 className="text-xl font-semibold tracking-tight text-gray-900 mb-2">
+            Confirm your email
+          </h1>
+          <p className="text-sm text-gray-600 leading-relaxed">
             We&apos;ve sent a confirmation link to <strong>{email}</strong>. Click it to activate
             your account, then sign in.
           </p>
           <Link
             href="/login"
-            className="inline-block mt-6 bg-blue-600 text-white px-6 py-2.5 rounded-lg font-medium hover:bg-blue-700 transition"
+            className="inline-block mt-6 bg-gray-900 text-white px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-gray-800 transition-colors"
           >
             Back to Sign In
           </Link>
@@ -78,14 +83,13 @@ export default function SignupPage() {
   }
 
   return (
-    <div className="max-w-md mx-auto my-10">
-      <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-200">
-        <div className="text-center mb-8">
-          <div className="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-            <UserPlus className="w-6 h-6" />
-          </div>
-          <h1 className="text-2xl font-extrabold text-gray-900">Create your account</h1>
-          <p className="text-gray-500 mt-1">Join your campus lost &amp; found community</p>
+    <div className="max-w-sm mx-auto my-8 sm:my-16">
+      <div className="bg-white p-6 sm:p-8 rounded-xl border border-gray-200">
+        <div className="mb-8">
+          <h1 className="text-2xl font-semibold tracking-tight text-gray-900">
+            Create your account
+          </h1>
+          <p className="text-sm text-gray-600 mt-1">Join your campus lost &amp; found community</p>
         </div>
 
         <form onSubmit={handleSignup} className="space-y-5">
@@ -101,7 +105,7 @@ export default function SignupPage() {
               value={fullName}
               onChange={(e) => setFullName(e.target.value)}
               placeholder="Jane Doe"
-              className="w-full px-4 py-2.5 text-gray-900 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+              className={inputClasses}
             />
           </div>
 
@@ -116,7 +120,7 @@ export default function SignupPage() {
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               placeholder="janedoe"
-              className="w-full px-4 py-2.5 text-gray-900 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+              className={inputClasses}
             />
           </div>
 
@@ -132,7 +136,7 @@ export default function SignupPage() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="you@university.edu"
-              className="w-full px-4 py-2.5 text-gray-900 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+              className={inputClasses}
             />
           </div>
 
@@ -149,7 +153,7 @@ export default function SignupPage() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="At least 8 characters"
-              className="w-full px-4 py-2.5 text-gray-900 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+              className={inputClasses}
             />
           </div>
 
@@ -162,17 +166,17 @@ export default function SignupPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-blue-600 text-white py-2.5 rounded-lg font-medium hover:bg-blue-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full bg-gray-900 text-white py-2.5 rounded-lg text-sm font-medium hover:bg-gray-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {loading ? 'Creating account...' : 'Sign Up'}
           </button>
         </form>
 
-        <p className="text-sm text-gray-500 text-center mt-6">
+        <p className="text-sm text-gray-600 text-center mt-6">
           Already have an account?{' '}
           <Link
             href="/login"
-            className="text-blue-600 font-medium hover:text-blue-700 hover:underline"
+            className="text-gray-900 font-medium underline underline-offset-2 hover:no-underline"
           >
             Sign in
           </Link>

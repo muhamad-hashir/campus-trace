@@ -1,0 +1,1251 @@
+
+> campus-trace@0.1.0 dev
+> next dev
+
+▲ Next.js 16.4.1 (Turbopack)
+- Local:         http://localhost:43787
+- Network:       http://192.168.100.9:43787
+- Environments: .env.local
+✓ Ready in 1055ms
+✓ Running next.config.ts took 101ms
+⚠ The "middleware" file convention is deprecated. Please use "proxy" instead.
+
+  To migrate automatically, run:
+  npx @next/codemod@canary middleware-to-proxy .
+
+  Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+- Cache Components enabled
+- Partial Prefetching enabled
+
+ GET / 200 in 6.6s (next.js: 2.9s, proxy.ts: 203ms, application-code: 3.5s)
+ GET / 200 in 608ms (next.js: 76ms, proxy.ts: 14ms, application-code: 517ms)
+ GET / 200 in 2.8s (next.js: 16ms, proxy.ts: 1674ms, application-code: 1067ms)
+ GET / 200 in 1368ms (next.js: 18ms, proxy.ts: 616ms, application-code: 734ms)
+ GET / 200 in 3.6s (next.js: 81ms, proxy.ts: 39ms, application-code: 3.5s)
+ GET /items/new 200 in 13.0s (next.js: 2.2s, proxy.ts: 1325ms, application-code: 9.4s)
+ GET /?type=lost 200 in 676ms (next.js: 15ms, proxy.ts: 12ms, application-code: 649ms)
+ GET /?type=found 200 in 781ms (next.js: 10ms, proxy.ts: 10ms, application-code: 760ms)
+ GET / 200 in 714ms (next.js: 12ms, proxy.ts: 15ms, application-code: 687ms)
+ GET /dashboard 200 in 6.9s (next.js: 250ms, proxy.ts: 5.3s, application-code: 1323ms)
+⨯ Error: Route "/dashboard": Next.js encountered the unstable value `Date.now()` while prerendering.
+
+This value can change between renders, so it must be either prerendered or computed later.
+
+Ways to fix this:
+  - [dynamic] Render at request time by adding a dynamic data access (e.g. `await connection()`) before this call
+  - [cache] Prerender and cache the value with `"use cache"`
+  - [client] Render the value on the client with `"use client"`
+  - [measure] If the value is for telemetry, use a timing API such as `performance.now()`
+
+Learn more: https://nextjs.org/docs/messages/blocking-prerender-current-time
+    at DashboardPage (<anonymous>) {
+  digest: '1374252005'
+}
+⨯ Error: Route "/dashboard": Next.js encountered the unstable value `Date.now()` while prerendering.
+
+This value can change between renders, so it must be either prerendered or computed later.
+
+Ways to fix this:
+  - [dynamic] Render at request time by adding a dynamic data access (e.g. `await connection()`) before this call
+  - [cache] Prerender and cache the value with `"use cache"`
+  - [client] Render the value on the client with `"use client"`
+  - [measure] If the value is for telemetry, use a timing API such as `performance.now()`
+
+Learn more: https://nextjs.org/docs/messages/blocking-prerender-current-time
+    at DashboardPage (<anonymous>) {
+  digest: '1374252005'
+}
+Error: Route "/dashboard": Next.js encountered the unstable value `Date.now()` while prerendering.
+
+This value can change between renders, so it must be either prerendered or computed later.
+
+Ways to fix this:
+  - [dynamic] Render at request time by adding a dynamic data access (e.g. `await connection()`) before this call
+  - [cache] Prerender and cache the value with `"use cache"`
+  - [client] Render the value on the client with `"use client"`
+  - [measure] If the value is for telemetry, use a timing API such as `performance.now()`
+
+Learn more: https://nextjs.org/docs/messages/blocking-prerender-current-time
+    at DashboardPage (<anonymous>) {
+  digest: '1374252005'
+}
+ GET /dashboard 200 in 5.3s (next.js: 75ms, proxy.ts: 2.9s, application-code: 2.3s)
+⨯ Error: Route "/dashboard": Next.js encountered the unstable value `Date.now()` while prerendering.
+
+This value can change between renders, so it must be either prerendered or computed later.
+
+Ways to fix this:
+  - [dynamic] Render at request time by adding a dynamic data access (e.g. `await connection()`) before this call
+  - [cache] Prerender and cache the value with `"use cache"`
+  - [client] Render the value on the client with `"use client"`
+  - [measure] If the value is for telemetry, use a timing API such as `performance.now()`
+
+Learn more: https://nextjs.org/docs/messages/blocking-prerender-current-time
+    at DashboardPage (<anonymous>) {
+  digest: '1374252005'
+}
+⨯ Error: Route "/dashboard": Next.js encountered the unstable value `Date.now()` while prerendering.
+
+This value can change between renders, so it must be either prerendered or computed later.
+
+Ways to fix this:
+  - [dynamic] Render at request time by adding a dynamic data access (e.g. `await connection()`) before this call
+  - [cache] Prerender and cache the value with `"use cache"`
+  - [client] Render the value on the client with `"use client"`
+  - [measure] If the value is for telemetry, use a timing API such as `performance.now()`
+
+Learn more: https://nextjs.org/docs/messages/blocking-prerender-current-time
+    at DashboardPage (<anonymous>) {
+  digest: '1374252005'
+}
+Error: Route "/dashboard": Next.js encountered the unstable value `Date.now()` while prerendering.
+
+This value can change between renders, so it must be either prerendered or computed later.
+
+Ways to fix this:
+  - [dynamic] Render at request time by adding a dynamic data access (e.g. `await connection()`) before this call
+  - [cache] Prerender and cache the value with `"use cache"`
+  - [client] Render the value on the client with `"use client"`
+  - [measure] If the value is for telemetry, use a timing API such as `performance.now()`
+
+Learn more: https://nextjs.org/docs/messages/blocking-prerender-current-time
+    at DashboardPage (<anonymous>) {
+  digest: '1374252005'
+}
+ GET /items 404 in 3.4s (next.js: 280ms, proxy.ts: 1655ms, application-code: 1418ms)
+ GET /api/items-list 404 in 4.2s (next.js: 13ms, proxy.ts: 2.9s, application-code: 1239ms)
+ GET / 200 in 5.4s (next.js: 22ms, proxy.ts: 4.1s, application-code: 1250ms)
+ GET /items/dcf31e5a-9d83-4dfd-98d0-f471cbaffc73 200 in 3.9s (next.js: 73ms, proxy.ts: 984ms, generate-params: 817ms, application-code: 2.1s)
+⨯ Error: Route "/items/[id]": Next.js encountered the unstable value `Date.now()` while prerendering.
+
+This value can change between renders, so it must be either prerendered or computed later.
+
+Ways to fix this:
+  - [dynamic] Render at request time by adding a dynamic data access (e.g. `await connection()`) before this call
+  - [cache] Prerender and cache the value with `"use cache"`
+  - [client] Render the value on the client with `"use client"`
+  - [measure] If the value is for telemetry, use a timing API such as `performance.now()`
+
+Learn more: https://nextjs.org/docs/messages/blocking-prerender-current-time
+    at ItemDetailPage (src/app/items/[id]/page.tsx:230:7)
+  228 |   return (
+  229 |     <Suspense fallback={<div className="max-w-3xl mx-auto h-96 bg-white rounded-2xl border border-gray-200 animate-pulse" />}>
+> 230 |       <ItemContent params={params} />
+      |       ^
+  231 |     </Suspense>
+  232 |   )
+  233 | } {
+  digest: '2954675413'
+}
+Error: Route "/items/[id]": Next.js encountered the unstable value `Date.now()` while prerendering.
+
+This value can change between renders, so it must be either prerendered or computed later.
+
+Ways to fix this:
+  - [dynamic] Render at request time by adding a dynamic data access (e.g. `await connection()`) before this call
+  - [cache] Prerender and cache the value with `"use cache"`
+  - [client] Render the value on the client with `"use client"`
+  - [measure] If the value is for telemetry, use a timing API such as `performance.now()`
+
+Learn more: https://nextjs.org/docs/messages/blocking-prerender-current-time
+    at ItemDetailPage (src/app/items/[id]/page.tsx:230:7)
+  228 |   return (
+  229 |     <Suspense fallback={<div className="max-w-3xl mx-auto h-96 bg-white rounded-2xl border border-gray-200 animate-pulse" />}>
+> 230 |       <ItemContent params={params} />
+      |       ^
+  231 |     </Suspense>
+  232 |   )
+  233 | } {
+  digest: '2954675413'
+}
+ GET / 200 in 1800ms (next.js: 13ms, proxy.ts: 554ms, application-code: 1234ms)
+ GET /login 200 in 243ms (next.js: 82ms, proxy.ts: 12ms, application-code: 149ms)
+✓ Compiled in 225ms
+✓ Compiled in 232ms
+ GET /login 200 in 277ms (next.js: 182ms, proxy.ts: 11ms, application-code: 83ms)
+Error: Route "/login": Next.js encountered the unstable value `new Date()` while prerendering.
+
+This value can change between renders, so it must be either prerendered or computed later.
+
+Ways to fix this:
+  - [dynamic] Render at request time by adding a dynamic data access (e.g. `await connection()`) before this call
+  - [cache] Prerender and cache the value with `"use cache"`
+  - [client] Render the value on the client with `"use client"`
+  - [measure] If the value is for telemetry, use a timing API such as `performance.now()`
+
+Learn more: https://nextjs.org/docs/messages/blocking-prerender-current-time
+    at RootLayout (src/app/layout.tsx:31:24)
+    at RootLayout (<anonymous>)
+  29 |         <footer className="border-t border-gray-200 bg-white">
+  30 |           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-gray-500">
+> 31 |             <p>&copy; {new Date().getFullYear()} CampusTrace</p>
+     |                        ^
+  32 |             <p>Campus Lost &amp; Found — post it, spot it, reclaim it.</p>
+  33 |           </div>
+  34 |         </footer>
+ GET / 200 in 460ms (next.js: 133ms, proxy.ts: 28ms, application-code: 299ms)
+Error: Route "/": Next.js encountered the unstable value `new Date()` while prerendering.
+
+This value can change between renders, so it must be either prerendered or computed later.
+
+Ways to fix this:
+  - [dynamic] Render at request time by adding a dynamic data access (e.g. `await connection()`) before this call
+  - [cache] Prerender and cache the value with `"use cache"`
+  - [client] Render the value on the client with `"use client"`
+  - [measure] If the value is for telemetry, use a timing API such as `performance.now()`
+
+Learn more: https://nextjs.org/docs/messages/blocking-prerender-current-time
+    at RootLayout (src/app/layout.tsx:31:24)
+    at RootLayout (<anonymous>)
+  29 |         <footer className="border-t border-gray-200 bg-white">
+  30 |           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-gray-500">
+> 31 |             <p>&copy; {new Date().getFullYear()} CampusTrace</p>
+     |                        ^
+  32 |             <p>Campus Lost &amp; Found — post it, spot it, reclaim it.</p>
+  33 |           </div>
+  34 |         </footer>
+ GET / 200 in 1297ms (next.js: 8ms, proxy.ts: 1160ms, application-code: 129ms)
+Error: Route "/": Next.js encountered the unstable value `new Date()` while prerendering.
+
+This value can change between renders, so it must be either prerendered or computed later.
+
+Ways to fix this:
+  - [dynamic] Render at request time by adding a dynamic data access (e.g. `await connection()`) before this call
+  - [cache] Prerender and cache the value with `"use cache"`
+  - [client] Render the value on the client with `"use client"`
+  - [measure] If the value is for telemetry, use a timing API such as `performance.now()`
+
+Learn more: https://nextjs.org/docs/messages/blocking-prerender-current-time
+    at RootLayout (src/app/layout.tsx:31:24)
+    at RootLayout (<anonymous>)
+  29 |         <footer className="border-t border-gray-200 bg-white">
+  30 |           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-gray-500">
+> 31 |             <p>&copy; {new Date().getFullYear()} CampusTrace</p>
+     |                        ^
+  32 |             <p>Campus Lost &amp; Found — post it, spot it, reclaim it.</p>
+  33 |           </div>
+  34 |         </footer>
+ GET / 200 in 872ms (next.js: 13ms, proxy.ts: 13ms, application-code: 846ms)
+Error: Route "/": Next.js encountered the unstable value `new Date()` while prerendering.
+
+This value can change between renders, so it must be either prerendered or computed later.
+
+Ways to fix this:
+  - [dynamic] Render at request time by adding a dynamic data access (e.g. `await connection()`) before this call
+  - [cache] Prerender and cache the value with `"use cache"`
+  - [client] Render the value on the client with `"use client"`
+  - [measure] If the value is for telemetry, use a timing API such as `performance.now()`
+
+Learn more: https://nextjs.org/docs/messages/blocking-prerender-current-time
+    at RootLayout (src/app/layout.tsx:31:24)
+    at RootLayout (<anonymous>)
+  29 |         <footer className="border-t border-gray-200 bg-white">
+  30 |           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-gray-500">
+> 31 |             <p>&copy; {new Date().getFullYear()} CampusTrace</p>
+     |                        ^
+  32 |             <p>Campus Lost &amp; Found — post it, spot it, reclaim it.</p>
+  33 |           </div>
+  34 |         </footer>
+✓ Compiled in 659ms
+ GET /login 200 in 657ms (next.js: 402ms, proxy.ts: 77ms, application-code: 178ms)
+Error: Route "/login": Next.js encountered the unstable value `new Date()` while prerendering.
+
+This value can change between renders, so it must be either prerendered or computed later.
+
+Ways to fix this:
+  - [dynamic] Render at request time by adding a dynamic data access (e.g. `await connection()`) before this call
+  - [cache] Prerender and cache the value with `"use cache"`
+  - [client] Render the value on the client with `"use client"`
+  - [measure] If the value is for telemetry, use a timing API such as `performance.now()`
+
+Learn more: https://nextjs.org/docs/messages/blocking-prerender-current-time
+    at RootLayout (src/app/layout.tsx:31:24)
+    at RootLayout (<anonymous>)
+  29 |         <footer className="border-t border-gray-200 bg-white">
+  30 |           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-gray-500">
+> 31 |             <p>&copy; {new Date().getFullYear()} CampusTrace</p>
+     |                        ^
+  32 |             <p>Campus Lost &amp; Found — post it, spot it, reclaim it.</p>
+  33 |           </div>
+  34 |         </footer>
+ GET / 200 in 802ms (next.js: 250ms, proxy.ts: 17ms, application-code: 536ms)
+Error: Route "/": Next.js encountered the unstable value `new Date()` while prerendering.
+
+This value can change between renders, so it must be either prerendered or computed later.
+
+Ways to fix this:
+  - [dynamic] Render at request time by adding a dynamic data access (e.g. `await connection()`) before this call
+  - [cache] Prerender and cache the value with `"use cache"`
+  - [client] Render the value on the client with `"use client"`
+  - [measure] If the value is for telemetry, use a timing API such as `performance.now()`
+
+Learn more: https://nextjs.org/docs/messages/blocking-prerender-current-time
+    at RootLayout (src/app/layout.tsx:31:24)
+    at RootLayout (<anonymous>)
+  29 |         <footer className="border-t border-gray-200 bg-white">
+  30 |           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-gray-500">
+> 31 |             <p>&copy; {new Date().getFullYear()} CampusTrace</p>
+     |                        ^
+  32 |             <p>Campus Lost &amp; Found — post it, spot it, reclaim it.</p>
+  33 |           </div>
+  34 |         </footer>
+ GET / 200 in 8.0s (next.js: 9ms, proxy.ts: 7.9s, application-code: 108ms)
+Error: Route "/": Next.js encountered the unstable value `new Date()` while prerendering.
+
+This value can change between renders, so it must be either prerendered or computed later.
+
+Ways to fix this:
+  - [dynamic] Render at request time by adding a dynamic data access (e.g. `await connection()`) before this call
+  - [cache] Prerender and cache the value with `"use cache"`
+  - [client] Render the value on the client with `"use client"`
+  - [measure] If the value is for telemetry, use a timing API such as `performance.now()`
+
+Learn more: https://nextjs.org/docs/messages/blocking-prerender-current-time
+    at RootLayout (src/app/layout.tsx:31:24)
+    at RootLayout (<anonymous>)
+  29 |         <footer className="border-t border-gray-200 bg-white">
+  30 |           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-gray-500">
+> 31 |             <p>&copy; {new Date().getFullYear()} CampusTrace</p>
+     |                        ^
+  32 |             <p>Campus Lost &amp; Found — post it, spot it, reclaim it.</p>
+  33 |           </div>
+  34 |         </footer>
+✓ Compiled in 531ms
+ GET /login?next=%2Fitems%2Fnew 307 in 611ms (proxy.ts: 10ms)
+ GET /login?next=%2Fitems%2Fnew 200 in 137ms (next.js: 30ms, proxy.ts: 10ms, application-code: 96ms)
+Error: Route "/login": Next.js encountered the unstable value `new Date()` while prerendering.
+
+This value can change between renders, so it must be either prerendered or computed later.
+
+Ways to fix this:
+  - [dynamic] Render at request time by adding a dynamic data access (e.g. `await connection()`) before this call
+  - [cache] Prerender and cache the value with `"use cache"`
+  - [client] Render the value on the client with `"use client"`
+  - [measure] If the value is for telemetry, use a timing API such as `performance.now()`
+
+Learn more: https://nextjs.org/docs/messages/blocking-prerender-current-time
+    at RootLayout (src/app/layout.tsx:31:24)
+    at RootLayout (<anonymous>)
+  29 |         <footer className="border-t border-gray-200 bg-white">
+  30 |           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-gray-500">
+> 31 |             <p>&copy; {new Date().getFullYear()} CampusTrace</p>
+     |                        ^
+  32 |             <p>Campus Lost &amp; Found — post it, spot it, reclaim it.</p>
+  33 |           </div>
+  34 |         </footer>
+ GET / 307 in 442ms (proxy.ts: 402ms)
+ GET / 200 in 2.6s (next.js: 7ms, proxy.ts: 420ms, application-code: 2.2s)
+Error: Route "/": Next.js encountered the unstable value `new Date()` while prerendering.
+
+This value can change between renders, so it must be either prerendered or computed later.
+
+Ways to fix this:
+  - [dynamic] Render at request time by adding a dynamic data access (e.g. `await connection()`) before this call
+  - [cache] Prerender and cache the value with `"use cache"`
+  - [client] Render the value on the client with `"use client"`
+  - [measure] If the value is for telemetry, use a timing API such as `performance.now()`
+
+Learn more: https://nextjs.org/docs/messages/blocking-prerender-current-time
+    at RootLayout (src/app/layout.tsx:31:24)
+    at RootLayout (<anonymous>)
+  29 |         <footer className="border-t border-gray-200 bg-white">
+  30 |           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-gray-500">
+> 31 |             <p>&copy; {new Date().getFullYear()} CampusTrace</p>
+     |                        ^
+  32 |             <p>Campus Lost &amp; Found — post it, spot it, reclaim it.</p>
+  33 |           </div>
+  34 |         </footer>
+ GET /items/new 200 in 6.7s (next.js: 100ms, proxy.ts: 966ms, application-code: 5.7s)
+Error: Route "/items/new": Next.js encountered the unstable value `new Date()` while prerendering.
+
+This value can change between renders, so it must be either prerendered or computed later.
+
+Ways to fix this:
+  - [dynamic] Render at request time by adding a dynamic data access (e.g. `await connection()`) before this call
+  - [cache] Prerender and cache the value with `"use cache"`
+  - [client] Render the value on the client with `"use client"`
+  - [measure] If the value is for telemetry, use a timing API such as `performance.now()`
+
+Learn more: https://nextjs.org/docs/messages/blocking-prerender-current-time
+    at RootLayout (src/app/layout.tsx:31:24)
+    at RootLayout (<anonymous>)
+  29 |         <footer className="border-t border-gray-200 bg-white">
+  30 |           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-gray-500">
+> 31 |             <p>&copy; {new Date().getFullYear()} CampusTrace</p>
+     |                        ^
+  32 |             <p>Campus Lost &amp; Found — post it, spot it, reclaim it.</p>
+  33 |           </div>
+  34 |         </footer>
+✓ Compiled in 110ms
+ GET /login 200 in 179ms (next.js: 31ms, proxy.ts: 38ms, application-code: 110ms)
+Error: Route "/login": Next.js encountered the unstable value `new Date()` while prerendering.
+
+This value can change between renders, so it must be either prerendered or computed later.
+
+Ways to fix this:
+  - [dynamic] Render at request time by adding a dynamic data access (e.g. `await connection()`) before this call
+  - [cache] Prerender and cache the value with `"use cache"`
+  - [client] Render the value on the client with `"use client"`
+  - [measure] If the value is for telemetry, use a timing API such as `performance.now()`
+
+Learn more: https://nextjs.org/docs/messages/blocking-prerender-current-time
+    at RootLayout (src/app/layout.tsx:31:24)
+    at RootLayout (<anonymous>)
+  29 |         <footer className="border-t border-gray-200 bg-white">
+  30 |           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-gray-500">
+> 31 |             <p>&copy; {new Date().getFullYear()} CampusTrace</p>
+     |                        ^
+  32 |             <p>Campus Lost &amp; Found — post it, spot it, reclaim it.</p>
+  33 |           </div>
+  34 |         </footer>
+ GET / 200 in 1205ms (next.js: 49ms, proxy.ts: 729ms, application-code: 427ms)
+Error: Route "/": Next.js encountered the unstable value `new Date()` while prerendering.
+
+This value can change between renders, so it must be either prerendered or computed later.
+
+Ways to fix this:
+  - [dynamic] Render at request time by adding a dynamic data access (e.g. `await connection()`) before this call
+  - [cache] Prerender and cache the value with `"use cache"`
+  - [client] Render the value on the client with `"use client"`
+  - [measure] If the value is for telemetry, use a timing API such as `performance.now()`
+
+Learn more: https://nextjs.org/docs/messages/blocking-prerender-current-time
+    at RootLayout (src/app/layout.tsx:31:24)
+    at RootLayout (<anonymous>)
+  29 |         <footer className="border-t border-gray-200 bg-white">
+  30 |           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-gray-500">
+> 31 |             <p>&copy; {new Date().getFullYear()} CampusTrace</p>
+     |                        ^
+  32 |             <p>Campus Lost &amp; Found — post it, spot it, reclaim it.</p>
+  33 |           </div>
+  34 |         </footer>
+ GET /items/new 200 in 1455ms (next.js: 53ms, proxy.ts: 1069ms, application-code: 334ms)
+Error: Route "/items/new": Next.js encountered the unstable value `new Date()` while prerendering.
+
+This value can change between renders, so it must be either prerendered or computed later.
+
+Ways to fix this:
+  - [dynamic] Render at request time by adding a dynamic data access (e.g. `await connection()`) before this call
+  - [cache] Prerender and cache the value with `"use cache"`
+  - [client] Render the value on the client with `"use client"`
+  - [measure] If the value is for telemetry, use a timing API such as `performance.now()`
+
+Learn more: https://nextjs.org/docs/messages/blocking-prerender-current-time
+    at RootLayout (src/app/layout.tsx:31:24)
+    at RootLayout (<anonymous>)
+  29 |         <footer className="border-t border-gray-200 bg-white">
+  30 |           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-gray-500">
+> 31 |             <p>&copy; {new Date().getFullYear()} CampusTrace</p>
+     |                        ^
+  32 |             <p>Campus Lost &amp; Found — post it, spot it, reclaim it.</p>
+  33 |           </div>
+  34 |         </footer>
+✓ Compiled in 108ms
+ GET /items/6f2cda94-ca8b-4bb9-aea8-8e4ad972a9d2 200 in 2.7s (next.js: 111ms, proxy.ts: 1014ms, generate-params: 80ms, application-code: 1462ms)
+ GET /items/6f2cda94-ca8b-4bb9-aea8-8e4ad972a9d2 200 in 1961ms (next.js: 15ms, proxy.ts: 389ms, generate-params: 0.1ms, application-code: 1556ms)
+✓ Compiled in 114ms
+ GET /login 200 in 122ms (next.js: 24ms, proxy.ts: 10ms, application-code: 87ms)
+Error: Route "/login": Next.js encountered the unstable value `new Date()` while prerendering.
+
+This value can change between renders, so it must be either prerendered or computed later.
+
+Ways to fix this:
+  - [dynamic] Render at request time by adding a dynamic data access (e.g. `await connection()`) before this call
+  - [cache] Prerender and cache the value with `"use cache"`
+  - [client] Render the value on the client with `"use client"`
+  - [measure] If the value is for telemetry, use a timing API such as `performance.now()`
+
+Learn more: https://nextjs.org/docs/messages/blocking-prerender-current-time
+    at RootLayout (src/app/layout.tsx:31:24)
+    at RootLayout (<anonymous>)
+  29 |         <footer className="border-t border-gray-200 bg-white">
+  30 |           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-gray-500">
+> 31 |             <p>&copy; {new Date().getFullYear()} CampusTrace</p>
+     |                        ^
+  32 |             <p>Campus Lost &amp; Found — post it, spot it, reclaim it.</p>
+  33 |           </div>
+  34 |         </footer>
+ GET / 200 in 1329ms (next.js: 15ms, proxy.ts: 1154ms, application-code: 160ms)
+Error: Route "/": Next.js encountered the unstable value `new Date()` while prerendering.
+
+This value can change between renders, so it must be either prerendered or computed later.
+
+Ways to fix this:
+  - [dynamic] Render at request time by adding a dynamic data access (e.g. `await connection()`) before this call
+  - [cache] Prerender and cache the value with `"use cache"`
+  - [client] Render the value on the client with `"use client"`
+  - [measure] If the value is for telemetry, use a timing API such as `performance.now()`
+
+Learn more: https://nextjs.org/docs/messages/blocking-prerender-current-time
+    at RootLayout (src/app/layout.tsx:31:24)
+    at RootLayout (<anonymous>)
+  29 |         <footer className="border-t border-gray-200 bg-white">
+  30 |           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-gray-500">
+> 31 |             <p>&copy; {new Date().getFullYear()} CampusTrace</p>
+     |                        ^
+  32 |             <p>Campus Lost &amp; Found — post it, spot it, reclaim it.</p>
+  33 |           </div>
+  34 |         </footer>
+ GET / 200 in 527ms (next.js: 6ms, proxy.ts: 425ms, application-code: 96ms)
+Error: Route "/": Next.js encountered the unstable value `new Date()` while prerendering.
+
+This value can change between renders, so it must be either prerendered or computed later.
+
+Ways to fix this:
+  - [dynamic] Render at request time by adding a dynamic data access (e.g. `await connection()`) before this call
+  - [cache] Prerender and cache the value with `"use cache"`
+  - [client] Render the value on the client with `"use client"`
+  - [measure] If the value is for telemetry, use a timing API such as `performance.now()`
+
+Learn more: https://nextjs.org/docs/messages/blocking-prerender-current-time
+    at RootLayout (src/app/layout.tsx:31:24)
+    at RootLayout (<anonymous>)
+  29 |         <footer className="border-t border-gray-200 bg-white">
+  30 |           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-gray-500">
+> 31 |             <p>&copy; {new Date().getFullYear()} CampusTrace</p>
+     |                        ^
+  32 |             <p>Campus Lost &amp; Found — post it, spot it, reclaim it.</p>
+  33 |           </div>
+  34 |         </footer>
+ GET / 200 in 2.1s (next.js: 26ms, proxy.ts: 1096ms, application-code: 983ms)
+✓ Compiled in 196ms
+ GET /dashboard 200 in 3.3s (next.js: 61ms, proxy.ts: 716ms, application-code: 2.5s)
+✓ Compiled in 38ms
+ GET /login 200 in 267ms (next.js: 114ms, proxy.ts: 30ms, application-code: 122ms)
+Error: Route "/login": Next.js encountered the unstable value `new Date()` while prerendering.
+
+This value can change between renders, so it must be either prerendered or computed later.
+
+Ways to fix this:
+  - [dynamic] Render at request time by adding a dynamic data access (e.g. `await connection()`) before this call
+  - [cache] Prerender and cache the value with `"use cache"`
+  - [client] Render the value on the client with `"use client"`
+  - [measure] If the value is for telemetry, use a timing API such as `performance.now()`
+
+Learn more: https://nextjs.org/docs/messages/blocking-prerender-current-time
+    at RootLayout (src/app/layout.tsx:31:24)
+    at RootLayout (<anonymous>)
+  29 |         <footer className="border-t border-gray-200 bg-white">
+  30 |           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-gray-500">
+> 31 |             <p>&copy; {new Date().getFullYear()} CampusTrace</p>
+     |                        ^
+  32 |             <p>Campus Lost &amp; Found — post it, spot it, reclaim it.</p>
+  33 |           </div>
+  34 |         </footer>
+ GET /dashboard 200 in 1339ms (next.js: 255ms, proxy.ts: 898ms, application-code: 187ms)
+ GET / 200 in 1213ms (next.js: 65ms, proxy.ts: 756ms, application-code: 392ms)
+⨯ Error: Route "/dashboard": Next.js encountered the unstable value `new Date()` while prerendering.
+
+This value can change between renders, so it must be either prerendered or computed later.
+
+Ways to fix this:
+  - [dynamic] Render at request time by adding a dynamic data access (e.g. `await connection()`) before this call
+  - [cache] Prerender and cache the value with `"use cache"`
+  - [client] Render the value on the client with `"use client"`
+  - [measure] If the value is for telemetry, use a timing API such as `performance.now()`
+
+Learn more: https://nextjs.org/docs/messages/blocking-prerender-current-time
+    at RootLayout (src/app/layout.tsx:31:24)
+    at RootLayout (<anonymous>)
+  29 |         <footer className="border-t border-gray-200 bg-white">
+  30 |           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-gray-500">
+> 31 |             <p>&copy; {new Date().getFullYear()} CampusTrace</p>
+     |                        ^
+  32 |             <p>Campus Lost &amp; Found — post it, spot it, reclaim it.</p>
+  33 |           </div>
+  34 |         </footer> {
+  digest: '3121234654'
+}
+⨯ Error: Route "/dashboard": Next.js encountered the unstable value `new Date()` while prerendering.
+
+This value can change between renders, so it must be either prerendered or computed later.
+
+Ways to fix this:
+  - [dynamic] Render at request time by adding a dynamic data access (e.g. `await connection()`) before this call
+  - [cache] Prerender and cache the value with `"use cache"`
+  - [client] Render the value on the client with `"use client"`
+  - [measure] If the value is for telemetry, use a timing API such as `performance.now()`
+
+Learn more: https://nextjs.org/docs/messages/blocking-prerender-current-time
+    at RootLayout (src/app/layout.tsx:31:24)
+    at RootLayout (<anonymous>)
+  29 |         <footer className="border-t border-gray-200 bg-white">
+  30 |           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-gray-500">
+> 31 |             <p>&copy; {new Date().getFullYear()} CampusTrace</p>
+     |                        ^
+  32 |             <p>Campus Lost &amp; Found — post it, spot it, reclaim it.</p>
+  33 |           </div>
+  34 |         </footer> {
+  digest: '3121234654'
+}
+Error: Route "/dashboard": Next.js encountered the unstable value `new Date()` while prerendering.
+
+This value can change between renders, so it must be either prerendered or computed later.
+
+Ways to fix this:
+  - [dynamic] Render at request time by adding a dynamic data access (e.g. `await connection()`) before this call
+  - [cache] Prerender and cache the value with `"use cache"`
+  - [client] Render the value on the client with `"use client"`
+  - [measure] If the value is for telemetry, use a timing API such as `performance.now()`
+
+Learn more: https://nextjs.org/docs/messages/blocking-prerender-current-time
+    at RootLayout (src/app/layout.tsx:31:24)
+    at RootLayout (<anonymous>)
+  29 |         <footer className="border-t border-gray-200 bg-white">
+  30 |           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-gray-500">
+> 31 |             <p>&copy; {new Date().getFullYear()} CampusTrace</p>
+     |                        ^
+  32 |             <p>Campus Lost &amp; Found — post it, spot it, reclaim it.</p>
+  33 |           </div>
+  34 |         </footer> {
+  digest: '3121234654'
+}
+Error: Route "/": Next.js encountered the unstable value `new Date()` while prerendering.
+
+This value can change between renders, so it must be either prerendered or computed later.
+
+Ways to fix this:
+  - [dynamic] Render at request time by adding a dynamic data access (e.g. `await connection()`) before this call
+  - [cache] Prerender and cache the value with `"use cache"`
+  - [client] Render the value on the client with `"use client"`
+  - [measure] If the value is for telemetry, use a timing API such as `performance.now()`
+
+Learn more: https://nextjs.org/docs/messages/blocking-prerender-current-time
+    at RootLayout (src/app/layout.tsx:31:24)
+    at RootLayout (<anonymous>)
+  29 |         <footer className="border-t border-gray-200 bg-white">
+  30 |           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-gray-500">
+> 31 |             <p>&copy; {new Date().getFullYear()} CampusTrace</p>
+     |                        ^
+  32 |             <p>Campus Lost &amp; Found — post it, spot it, reclaim it.</p>
+  33 |           </div>
+  34 |         </footer>
+✓ Compiled in 105ms
+✓ Compiled in 130ms
+✓ Compiled in 126ms
+ GET /items/new 200 in 1882ms (next.js: 82ms, proxy.ts: 977ms, application-code: 823ms)
+Error: Route "/items/new": Next.js encountered the unstable value `new Date()` while prerendering.
+
+This value can change between renders, so it must be either prerendered or computed later.
+
+Ways to fix this:
+  - [dynamic] Render at request time by adding a dynamic data access (e.g. `await connection()`) before this call
+  - [cache] Prerender and cache the value with `"use cache"`
+  - [client] Render the value on the client with `"use client"`
+  - [measure] If the value is for telemetry, use a timing API such as `performance.now()`
+
+Learn more: https://nextjs.org/docs/messages/blocking-prerender-current-time
+    at RootLayout (src/app/layout.tsx:31:24)
+    at RootLayout (<anonymous>)
+  29 |         <footer className="border-t border-gray-200 bg-white">
+  30 |           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-gray-500">
+> 31 |             <p>&copy; {new Date().getFullYear()} CampusTrace</p>
+     |                        ^
+  32 |             <p>Campus Lost &amp; Found — post it, spot it, reclaim it.</p>
+  33 |           </div>
+  34 |         </footer>
+✓ Compiled in 80ms
+ GET /login 200 in 76ms (next.js: 14ms, proxy.ts: 11ms, application-code: 50ms)
+Error: Route "/login": Next.js encountered the unstable value `new Date()` while prerendering.
+
+This value can change between renders, so it must be either prerendered or computed later.
+
+Ways to fix this:
+  - [dynamic] Render at request time by adding a dynamic data access (e.g. `await connection()`) before this call
+  - [cache] Prerender and cache the value with `"use cache"`
+  - [client] Render the value on the client with `"use client"`
+  - [measure] If the value is for telemetry, use a timing API such as `performance.now()`
+
+Learn more: https://nextjs.org/docs/messages/blocking-prerender-current-time
+    at RootLayout (src/app/layout.tsx:31:24)
+    at RootLayout (<anonymous>)
+  29 |         <footer className="border-t border-gray-200 bg-white">
+  30 |           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-gray-500">
+> 31 |             <p>&copy; {new Date().getFullYear()} CampusTrace</p>
+     |                        ^
+  32 |             <p>Campus Lost &amp; Found — post it, spot it, reclaim it.</p>
+  33 |           </div>
+  34 |         </footer>
+ GET /items/new 200 in 1056ms (next.js: 13ms, proxy.ts: 967ms, application-code: 76ms)
+Error: Route "/items/new": Next.js encountered the unstable value `new Date()` while prerendering.
+
+This value can change between renders, so it must be either prerendered or computed later.
+
+Ways to fix this:
+  - [dynamic] Render at request time by adding a dynamic data access (e.g. `await connection()`) before this call
+  - [cache] Prerender and cache the value with `"use cache"`
+  - [client] Render the value on the client with `"use client"`
+  - [measure] If the value is for telemetry, use a timing API such as `performance.now()`
+
+Learn more: https://nextjs.org/docs/messages/blocking-prerender-current-time
+    at RootLayout (src/app/layout.tsx:31:24)
+    at RootLayout (<anonymous>)
+  29 |         <footer className="border-t border-gray-200 bg-white">
+  30 |           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-gray-500">
+> 31 |             <p>&copy; {new Date().getFullYear()} CampusTrace</p>
+     |                        ^
+  32 |             <p>Campus Lost &amp; Found — post it, spot it, reclaim it.</p>
+  33 |           </div>
+  34 |         </footer>
+ GET / 200 in 1235ms (next.js: 10ms, proxy.ts: 1146ms, application-code: 79ms)
+Error: Route "/": Next.js encountered the unstable value `new Date()` while prerendering.
+
+This value can change between renders, so it must be either prerendered or computed later.
+
+Ways to fix this:
+  - [dynamic] Render at request time by adding a dynamic data access (e.g. `await connection()`) before this call
+  - [cache] Prerender and cache the value with `"use cache"`
+  - [client] Render the value on the client with `"use client"`
+  - [measure] If the value is for telemetry, use a timing API such as `performance.now()`
+
+Learn more: https://nextjs.org/docs/messages/blocking-prerender-current-time
+    at RootLayout (src/app/layout.tsx:31:24)
+    at RootLayout (<anonymous>)
+  29 |         <footer className="border-t border-gray-200 bg-white">
+  30 |           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-gray-500">
+> 31 |             <p>&copy; {new Date().getFullYear()} CampusTrace</p>
+     |                        ^
+  32 |             <p>Campus Lost &amp; Found — post it, spot it, reclaim it.</p>
+  33 |           </div>
+  34 |         </footer>
+✓ Compiled in 73ms
+ GET /login 200 in 99ms (next.js: 24ms, proxy.ts: 13ms, application-code: 63ms)
+Error: Route "/login": Next.js encountered the unstable value `new Date()` while prerendering.
+
+This value can change between renders, so it must be either prerendered or computed later.
+
+Ways to fix this:
+  - [dynamic] Render at request time by adding a dynamic data access (e.g. `await connection()`) before this call
+  - [cache] Prerender and cache the value with `"use cache"`
+  - [client] Render the value on the client with `"use client"`
+  - [measure] If the value is for telemetry, use a timing API such as `performance.now()`
+
+Learn more: https://nextjs.org/docs/messages/blocking-prerender-current-time
+    at RootLayout (src/app/layout.tsx:31:24)
+    at RootLayout (<anonymous>)
+  29 |         <footer className="border-t border-gray-200 bg-white">
+  30 |           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-gray-500">
+> 31 |             <p>&copy; {new Date().getFullYear()} CampusTrace</p>
+     |                        ^
+  32 |             <p>Campus Lost &amp; Found — post it, spot it, reclaim it.</p>
+  33 |           </div>
+  34 |         </footer>
+ GET /items/new 200 in 702ms (next.js: 17ms, proxy.ts: 635ms, application-code: 50ms)
+Error: Route "/items/new": Next.js encountered the unstable value `new Date()` while prerendering.
+
+This value can change between renders, so it must be either prerendered or computed later.
+
+Ways to fix this:
+  - [dynamic] Render at request time by adding a dynamic data access (e.g. `await connection()`) before this call
+  - [cache] Prerender and cache the value with `"use cache"`
+  - [client] Render the value on the client with `"use client"`
+  - [measure] If the value is for telemetry, use a timing API such as `performance.now()`
+
+Learn more: https://nextjs.org/docs/messages/blocking-prerender-current-time
+    at RootLayout (src/app/layout.tsx:31:24)
+    at RootLayout (<anonymous>)
+  29 |         <footer className="border-t border-gray-200 bg-white">
+  30 |           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-gray-500">
+> 31 |             <p>&copy; {new Date().getFullYear()} CampusTrace</p>
+     |                        ^
+  32 |             <p>Campus Lost &amp; Found — post it, spot it, reclaim it.</p>
+  33 |           </div>
+  34 |         </footer>
+ GET / 200 in 820ms (next.js: 25ms, proxy.ts: 731ms, application-code: 64ms)
+Error: Route "/": Next.js encountered the unstable value `new Date()` while prerendering.
+
+This value can change between renders, so it must be either prerendered or computed later.
+
+Ways to fix this:
+  - [dynamic] Render at request time by adding a dynamic data access (e.g. `await connection()`) before this call
+  - [cache] Prerender and cache the value with `"use cache"`
+  - [client] Render the value on the client with `"use client"`
+  - [measure] If the value is for telemetry, use a timing API such as `performance.now()`
+
+Learn more: https://nextjs.org/docs/messages/blocking-prerender-current-time
+    at RootLayout (src/app/layout.tsx:31:24)
+    at RootLayout (<anonymous>)
+  29 |         <footer className="border-t border-gray-200 bg-white">
+  30 |           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-gray-500">
+> 31 |             <p>&copy; {new Date().getFullYear()} CampusTrace</p>
+     |                        ^
+  32 |             <p>Campus Lost &amp; Found — post it, spot it, reclaim it.</p>
+  33 |           </div>
+  34 |         </footer>
+✓ Compiled in 89ms
+ GET / 200 in 1285ms (next.js: 50ms, proxy.ts: 8ms, application-code: 1227ms)
+ GET /login 200 in 85ms (next.js: 12ms, proxy.ts: 4ms, application-code: 68ms)
+Error: Route "/login": Next.js encountered the unstable value `new Date()` while prerendering.
+
+This value can change between renders, so it must be either prerendered or computed later.
+
+Ways to fix this:
+  - [dynamic] Render at request time by adding a dynamic data access (e.g. `await connection()`) before this call
+  - [cache] Prerender and cache the value with `"use cache"`
+  - [client] Render the value on the client with `"use client"`
+  - [measure] If the value is for telemetry, use a timing API such as `performance.now()`
+
+Learn more: https://nextjs.org/docs/messages/blocking-prerender-current-time
+    at RootLayout (src/app/layout.tsx:31:24)
+    at RootLayout (<anonymous>)
+  29 |         <footer className="border-t border-gray-200 bg-white">
+  30 |           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-gray-500">
+> 31 |             <p>&copy; {new Date().getFullYear()} CampusTrace</p>
+     |                        ^
+  32 |             <p>Campus Lost &amp; Found — post it, spot it, reclaim it.</p>
+  33 |           </div>
+  34 |         </footer>
+ GET /signup 200 in 237ms (next.js: 163ms, proxy.ts: 3ms, application-code: 71ms)
+Error: Route "/signup": Next.js encountered the unstable value `new Date()` while prerendering.
+
+This value can change between renders, so it must be either prerendered or computed later.
+
+Ways to fix this:
+  - [dynamic] Render at request time by adding a dynamic data access (e.g. `await connection()`) before this call
+  - [cache] Prerender and cache the value with `"use cache"`
+  - [client] Render the value on the client with `"use client"`
+  - [measure] If the value is for telemetry, use a timing API such as `performance.now()`
+
+Learn more: https://nextjs.org/docs/messages/blocking-prerender-current-time
+    at RootLayout (src/app/layout.tsx:31:24)
+    at RootLayout (<anonymous>)
+  29 |         <footer className="border-t border-gray-200 bg-white">
+  30 |           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-gray-500">
+> 31 |             <p>&copy; {new Date().getFullYear()} CampusTrace</p>
+     |                        ^
+  32 |             <p>Campus Lost &amp; Found — post it, spot it, reclaim it.</p>
+  33 |           </div>
+  34 |         </footer>
+Error: Route "/": Next.js encountered the unstable value `new Date()` while prerendering.
+
+This value can change between renders, so it must be either prerendered or computed later.
+
+Ways to fix this:
+  - [dynamic] Render at request time by adding a dynamic data access (e.g. `await connection()`) before this call
+  - [cache] Prerender and cache the value with `"use cache"`
+  - [client] Render the value on the client with `"use client"`
+  - [measure] If the value is for telemetry, use a timing API such as `performance.now()`
+
+Learn more: https://nextjs.org/docs/messages/blocking-prerender-current-time
+    at RootLayout (src/app/layout.tsx:31:24)
+    at RootLayout (<anonymous>)
+  29 |         <footer className="border-t border-gray-200 bg-white">
+  30 |           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-gray-500">
+> 31 |             <p>&copy; {new Date().getFullYear()} CampusTrace</p>
+     |                        ^
+  32 |             <p>Campus Lost &amp; Found — post it, spot it, reclaim it.</p>
+  33 |           </div>
+  34 |         </footer>
+ GET /items/dcf31e5a-9d83-4dfd-98d0-f471cbaffc73 200 in 1157ms (next.js: 42ms, proxy.ts: 5ms, generate-params: 121ms, application-code: 989ms)
+⨯ Error: Route "/items/[id]": Next.js encountered the unstable value `new Date()` while prerendering.
+
+This value can change between renders, so it must be either prerendered or computed later.
+
+Ways to fix this:
+  - [dynamic] Render at request time by adding a dynamic data access (e.g. `await connection()`) before this call
+  - [cache] Prerender and cache the value with `"use cache"`
+  - [client] Render the value on the client with `"use client"`
+  - [measure] If the value is for telemetry, use a timing API such as `performance.now()`
+
+Learn more: https://nextjs.org/docs/messages/blocking-prerender-current-time
+    at RootLayout (src/app/layout.tsx:31:24)
+    at RootLayout (<anonymous>)
+  29 |         <footer className="border-t border-gray-200 bg-white">
+  30 |           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-gray-500">
+> 31 |             <p>&copy; {new Date().getFullYear()} CampusTrace</p>
+     |                        ^
+  32 |             <p>Campus Lost &amp; Found — post it, spot it, reclaim it.</p>
+  33 |           </div>
+  34 |         </footer> {
+  digest: '2756972350'
+}
+⨯ Error: Route "/items/[id]": Next.js encountered the unstable value `new Date()` while prerendering.
+
+This value can change between renders, so it must be either prerendered or computed later.
+
+Ways to fix this:
+  - [dynamic] Render at request time by adding a dynamic data access (e.g. `await connection()`) before this call
+  - [cache] Prerender and cache the value with `"use cache"`
+  - [client] Render the value on the client with `"use client"`
+  - [measure] If the value is for telemetry, use a timing API such as `performance.now()`
+
+Learn more: https://nextjs.org/docs/messages/blocking-prerender-current-time
+    at RootLayout (src/app/layout.tsx:31:24)
+    at RootLayout (<anonymous>)
+  29 |         <footer className="border-t border-gray-200 bg-white">
+  30 |           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-gray-500">
+> 31 |             <p>&copy; {new Date().getFullYear()} CampusTrace</p>
+     |                        ^
+  32 |             <p>Campus Lost &amp; Found — post it, spot it, reclaim it.</p>
+  33 |           </div>
+  34 |         </footer> {
+  digest: '2756972350'
+}
+Error: Route "/items/[id]": Next.js encountered the unstable value `new Date()` while prerendering.
+
+This value can change between renders, so it must be either prerendered or computed later.
+
+Ways to fix this:
+  - [dynamic] Render at request time by adding a dynamic data access (e.g. `await connection()`) before this call
+  - [cache] Prerender and cache the value with `"use cache"`
+  - [client] Render the value on the client with `"use client"`
+  - [measure] If the value is for telemetry, use a timing API such as `performance.now()`
+
+Learn more: https://nextjs.org/docs/messages/blocking-prerender-current-time
+    at RootLayout (src/app/layout.tsx:31:24)
+    at RootLayout (<anonymous>)
+  29 |         <footer className="border-t border-gray-200 bg-white">
+  30 |           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-gray-500">
+> 31 |             <p>&copy; {new Date().getFullYear()} CampusTrace</p>
+     |                        ^
+  32 |             <p>Campus Lost &amp; Found — post it, spot it, reclaim it.</p>
+  33 |           </div>
+  34 |         </footer> {
+  digest: '2756972350'
+}
+ GET /items/new 200 in 4.0s (next.js: 19ms, proxy.ts: 1319ms, application-code: 2.6s)
+ GET / 200 in 3.9s (next.js: 38ms, proxy.ts: 1209ms, application-code: 2.7s)
+Error: Route "/items/new": Next.js encountered the unstable value `new Date()` while prerendering.
+
+This value can change between renders, so it must be either prerendered or computed later.
+
+Ways to fix this:
+  - [dynamic] Render at request time by adding a dynamic data access (e.g. `await connection()`) before this call
+  - [cache] Prerender and cache the value with `"use cache"`
+  - [client] Render the value on the client with `"use client"`
+  - [measure] If the value is for telemetry, use a timing API such as `performance.now()`
+
+Learn more: https://nextjs.org/docs/messages/blocking-prerender-current-time
+    at RootLayout (src/app/layout.tsx:31:24)
+    at RootLayout (<anonymous>)
+  29 |         <footer className="border-t border-gray-200 bg-white">
+  30 |           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-gray-500">
+> 31 |             <p>&copy; {new Date().getFullYear()} CampusTrace</p>
+     |                        ^
+  32 |             <p>Campus Lost &amp; Found — post it, spot it, reclaim it.</p>
+  33 |           </div>
+  34 |         </footer>
+Error: Route "/": Next.js encountered the unstable value `new Date()` while prerendering.
+
+This value can change between renders, so it must be either prerendered or computed later.
+
+Ways to fix this:
+  - [dynamic] Render at request time by adding a dynamic data access (e.g. `await connection()`) before this call
+  - [cache] Prerender and cache the value with `"use cache"`
+  - [client] Render the value on the client with `"use client"`
+  - [measure] If the value is for telemetry, use a timing API such as `performance.now()`
+
+Learn more: https://nextjs.org/docs/messages/blocking-prerender-current-time
+    at RootLayout (src/app/layout.tsx:31:24)
+    at RootLayout (<anonymous>)
+  29 |         <footer className="border-t border-gray-200 bg-white">
+  30 |           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-gray-500">
+> 31 |             <p>&copy; {new Date().getFullYear()} CampusTrace</p>
+     |                        ^
+  32 |             <p>Campus Lost &amp; Found — post it, spot it, reclaim it.</p>
+  33 |           </div>
+  34 |         </footer>
+ GET / 200 in 1477ms (next.js: 6ms, proxy.ts: 706ms, application-code: 765ms)
+Error: Route "/": Next.js encountered the unstable value `new Date()` while prerendering.
+
+This value can change between renders, so it must be either prerendered or computed later.
+
+Ways to fix this:
+  - [dynamic] Render at request time by adding a dynamic data access (e.g. `await connection()`) before this call
+  - [cache] Prerender and cache the value with `"use cache"`
+  - [client] Render the value on the client with `"use client"`
+  - [measure] If the value is for telemetry, use a timing API such as `performance.now()`
+
+Learn more: https://nextjs.org/docs/messages/blocking-prerender-current-time
+    at RootLayout (src/app/layout.tsx:31:24)
+    at RootLayout (<anonymous>)
+  29 |         <footer className="border-t border-gray-200 bg-white">
+  30 |           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-gray-500">
+> 31 |             <p>&copy; {new Date().getFullYear()} CampusTrace</p>
+     |                        ^
+  32 |             <p>Campus Lost &amp; Found — post it, spot it, reclaim it.</p>
+  33 |           </div>
+  34 |         </footer>
+✓ Compiled in 167ms
+ GET /login 200 in 163ms (next.js: 84ms, proxy.ts: 23ms, application-code: 56ms)
+Error: Route "/login": Next.js encountered uncached data during prerendering.
+
+`fetch(...)` or `connection()` accessed outside of `<Suspense>` prevents the route from being prerendered, blocking the page load and leading to a slower user experience.
+
+Ways to fix this:
+  - [stream] Provide a placeholder with `<Suspense fallback={...}>` around the data access
+  - [cache] Cache the data access with `"use cache"` (does not apply to `connection()`)
+  - [block] Set `export const instant = false` to allow a blocking route
+
+Learn more: https://nextjs.org/docs/messages/blocking-prerender-dynamic
+    at RootLayout (src/app/layout.tsx:22:19)
+  20 |   // The footer renders the current year; the App Shell is request-time under
+  21 |   // cacheComponents (the Navbar session read already forces this).
+> 22 |   await connection();
+     |                   ^
+  23 |
+  24 |   return (
+  25 |     <html lang="en">
+ GET / 200 in 853ms (next.js: 103ms, proxy.ts: 684ms, application-code: 66ms)
+ GET / 200 in 840ms (next.js: 31ms, proxy.ts: 667ms, application-code: 143ms)
+Error: Route "/": Next.js encountered uncached data during prerendering.
+
+`fetch(...)` or `connection()` accessed outside of `<Suspense>` prevents the route from being prerendered, blocking the page load and leading to a slower user experience.
+
+Ways to fix this:
+  - [stream] Provide a placeholder with `<Suspense fallback={...}>` around the data access
+  - [cache] Cache the data access with `"use cache"` (does not apply to `connection()`)
+  - [block] Set `export const instant = false` to allow a blocking route
+
+Learn more: https://nextjs.org/docs/messages/blocking-prerender-dynamic
+    at RootLayout (src/app/layout.tsx:22:19)
+  20 |   // The footer renders the current year; the App Shell is request-time under
+  21 |   // cacheComponents (the Navbar session read already forces this).
+> 22 |   await connection();
+     |                   ^
+  23 |
+  24 |   return (
+  25 |     <html lang="en">
+Error: Route "/": Next.js encountered uncached data during prerendering.
+
+`fetch(...)` or `connection()` accessed outside of `<Suspense>` prevents the route from being prerendered, blocking the page load and leading to a slower user experience.
+
+Ways to fix this:
+  - [stream] Provide a placeholder with `<Suspense fallback={...}>` around the data access
+  - [cache] Cache the data access with `"use cache"` (does not apply to `connection()`)
+  - [block] Set `export const instant = false` to allow a blocking route
+
+Learn more: https://nextjs.org/docs/messages/blocking-prerender-dynamic
+    at RootLayout (src/app/layout.tsx:22:19)
+  20 |   // The footer renders the current year; the App Shell is request-time under
+  21 |   // cacheComponents (the Navbar session read already forces this).
+> 22 |   await connection();
+     |                   ^
+  23 |
+  24 |   return (
+  25 |     <html lang="en">
+ GET / 200 in 681ms (next.js: 6ms, proxy.ts: 7ms, application-code: 667ms)
+Error: Route "/": Next.js encountered uncached data during prerendering.
+
+`fetch(...)` or `connection()` accessed outside of `<Suspense>` prevents the route from being prerendered, blocking the page load and leading to a slower user experience.
+
+Ways to fix this:
+  - [stream] Provide a placeholder with `<Suspense fallback={...}>` around the data access
+  - [cache] Cache the data access with `"use cache"` (does not apply to `connection()`)
+  - [block] Set `export const instant = false` to allow a blocking route
+
+Learn more: https://nextjs.org/docs/messages/blocking-prerender-dynamic
+    at RootLayout (src/app/layout.tsx:22:19)
+  20 |   // The footer renders the current year; the App Shell is request-time under
+  21 |   // cacheComponents (the Navbar session read already forces this).
+> 22 |   await connection();
+     |                   ^
+  23 |
+  24 |   return (
+  25 |     <html lang="en">
+ GET /signup 200 in 133ms (next.js: 28ms, proxy.ts: 6ms, application-code: 99ms)
+Error: Route "/signup": Next.js encountered uncached data during prerendering.
+
+`fetch(...)` or `connection()` accessed outside of `<Suspense>` prevents the route from being prerendered, blocking the page load and leading to a slower user experience.
+
+Ways to fix this:
+  - [stream] Provide a placeholder with `<Suspense fallback={...}>` around the data access
+  - [cache] Cache the data access with `"use cache"` (does not apply to `connection()`)
+  - [block] Set `export const instant = false` to allow a blocking route
+
+Learn more: https://nextjs.org/docs/messages/blocking-prerender-dynamic
+    at RootLayout (src/app/layout.tsx:22:19)
+  20 |   // The footer renders the current year; the App Shell is request-time under
+  21 |   // cacheComponents (the Navbar session read already forces this).
+> 22 |   await connection();
+     |                   ^
+  23 |
+  24 |   return (
+  25 |     <html lang="en">
+ GET /login 200 in 89ms (next.js: 4ms, proxy.ts: 6ms, application-code: 79ms)
+Error: Route "/login": Next.js encountered uncached data during prerendering.
+
+`fetch(...)` or `connection()` accessed outside of `<Suspense>` prevents the route from being prerendered, blocking the page load and leading to a slower user experience.
+
+Ways to fix this:
+  - [stream] Provide a placeholder with `<Suspense fallback={...}>` around the data access
+  - [cache] Cache the data access with `"use cache"` (does not apply to `connection()`)
+  - [block] Set `export const instant = false` to allow a blocking route
+
+Learn more: https://nextjs.org/docs/messages/blocking-prerender-dynamic
+    at RootLayout (src/app/layout.tsx:22:19)
+  20 |   // The footer renders the current year; the App Shell is request-time under
+  21 |   // cacheComponents (the Navbar session read already forces this).
+> 22 |   await connection();
+     |                   ^
+  23 |
+  24 |   return (
+  25 |     <html lang="en">
+ GET /items/new 200 in 1276ms (next.js: 28ms, proxy.ts: 657ms, application-code: 591ms)
+Error: Route "/items/new": Next.js encountered uncached data during prerendering.
+
+`fetch(...)` or `connection()` accessed outside of `<Suspense>` prevents the route from being prerendered, blocking the page load and leading to a slower user experience.
+
+Ways to fix this:
+  - [stream] Provide a placeholder with `<Suspense fallback={...}>` around the data access
+  - [cache] Cache the data access with `"use cache"` (does not apply to `connection()`)
+  - [block] Set `export const instant = false` to allow a blocking route
+
+Learn more: https://nextjs.org/docs/messages/blocking-prerender-dynamic
+    at RootLayout (src/app/layout.tsx:22:19)
+  20 |   // The footer renders the current year; the App Shell is request-time under
+  21 |   // cacheComponents (the Navbar session read already forces this).
+> 22 |   await connection();
+     |                   ^
+  23 |
+  24 |   return (
+  25 |     <html lang="en">
+ GET /dashboard 200 in 2.1s (next.js: 37ms, proxy.ts: 497ms, application-code: 1555ms)
+⨯ Error: Route "/dashboard": Next.js encountered the unstable value `Date.now()` while prerendering.
+
+This value can change between renders, so it must be either prerendered or computed later.
+
+Ways to fix this:
+  - [dynamic] Render at request time by adding a dynamic data access (e.g. `await connection()`) before this call
+  - [cache] Prerender and cache the value with `"use cache"`
+  - [client] Render the value on the client with `"use client"`
+  - [measure] If the value is for telemetry, use a timing API such as `performance.now()`
+
+Learn more: https://nextjs.org/docs/messages/blocking-prerender-current-time
+    at DashboardPage (<anonymous>) {
+  digest: '1374252005'
+}
+⨯ Error: Route "/dashboard": Next.js encountered the unstable value `Date.now()` while prerendering.
+
+This value can change between renders, so it must be either prerendered or computed later.
+
+Ways to fix this:
+  - [dynamic] Render at request time by adding a dynamic data access (e.g. `await connection()`) before this call
+  - [cache] Prerender and cache the value with `"use cache"`
+  - [client] Render the value on the client with `"use client"`
+  - [measure] If the value is for telemetry, use a timing API such as `performance.now()`
+
+Learn more: https://nextjs.org/docs/messages/blocking-prerender-current-time
+    at DashboardPage (<anonymous>) {
+  digest: '1374252005'
+}
+Error: Route "/dashboard": Next.js encountered the unstable value `Date.now()` while prerendering.
+
+This value can change between renders, so it must be either prerendered or computed later.
+
+Ways to fix this:
+  - [dynamic] Render at request time by adding a dynamic data access (e.g. `await connection()`) before this call
+  - [cache] Prerender and cache the value with `"use cache"`
+  - [client] Render the value on the client with `"use client"`
+  - [measure] If the value is for telemetry, use a timing API such as `performance.now()`
+
+Learn more: https://nextjs.org/docs/messages/blocking-prerender-current-time
+    at DashboardPage (<anonymous>) {
+  digest: '1374252005'
+}
+ GET /items/dcf31e5a-9d83-4dfd-98d0-f471cbaffc73 200 in 1618ms (next.js: 54ms, proxy.ts: 564ms, generate-params: 50ms, application-code: 950ms)
+⨯ Error: Route "/items/[id]": Next.js encountered the unstable value `Date.now()` while prerendering.
+
+This value can change between renders, so it must be either prerendered or computed later.
+
+Ways to fix this:
+  - [dynamic] Render at request time by adding a dynamic data access (e.g. `await connection()`) before this call
+  - [cache] Prerender and cache the value with `"use cache"`
+  - [client] Render the value on the client with `"use client"`
+  - [measure] If the value is for telemetry, use a timing API such as `performance.now()`
+
+Learn more: https://nextjs.org/docs/messages/blocking-prerender-current-time
+    at ItemDetailPage (src/app/items/[id]/page.tsx:232:7)
+  230 |   return (
+  231 |     <Suspense fallback={<div className="max-w-3xl mx-auto h-96 bg-white rounded-2xl border border-gray-200 animate-pulse" />}>
+> 232 |       <ItemContent params={params} />
+      |       ^
+  233 |     </Suspense>
+  234 |   )
+  235 | } {
+  digest: '4232131603'
+}
+Error: Route "/items/[id]": Next.js encountered the unstable value `Date.now()` while prerendering.
+
+This value can change between renders, so it must be either prerendered or computed later.
+
+Ways to fix this:
+  - [dynamic] Render at request time by adding a dynamic data access (e.g. `await connection()`) before this call
+  - [cache] Prerender and cache the value with `"use cache"`
+  - [client] Render the value on the client with `"use client"`
+  - [measure] If the value is for telemetry, use a timing API such as `performance.now()`
+
+Learn more: https://nextjs.org/docs/messages/blocking-prerender-current-time
+    at ItemDetailPage (src/app/items/[id]/page.tsx:232:7)
+  230 |   return (
+  231 |     <Suspense fallback={<div className="max-w-3xl mx-auto h-96 bg-white rounded-2xl border border-gray-200 animate-pulse" />}>
+> 232 |       <ItemContent params={params} />
+      |       ^
+  233 |     </Suspense>
+  234 |   )
+  235 | } {
+  digest: '4232131603'
+}
+✓ Compiled in 244ms
+ GET /login 200 in 159ms (next.js: 91ms, proxy.ts: 17ms, application-code: 50ms)
+ GET / 200 in 1070ms (next.js: 21ms, proxy.ts: 951ms, application-code: 98ms)
+ GET /items/dcf31e5a-9d83-4dfd-98d0-f471cbaffc73 200 in 1199ms (next.js: 37ms, proxy.ts: 1017ms, generate-params: 47ms, application-code: 98ms)
+⨯ Error: Route "/items/[id]": Next.js encountered the unstable value `Date.now()` while prerendering.
+
+This value can change between renders, so it must be either prerendered or computed later.
+
+Ways to fix this:
+  - [dynamic] Render at request time by adding a dynamic data access (e.g. `await connection()`) before this call
+  - [cache] Prerender and cache the value with `"use cache"`
+  - [client] Render the value on the client with `"use client"`
+  - [measure] If the value is for telemetry, use a timing API such as `performance.now()`
+
+Learn more: https://nextjs.org/docs/messages/blocking-prerender-current-time
+    at ItemDetailPage (src/app/items/[id]/page.tsx:232:7)
+  230 |   return (
+  231 |     <Suspense fallback={<div className="max-w-3xl mx-auto h-96 bg-white rounded-2xl border border-gray-200 animate-pulse" />}>
+> 232 |       <ItemContent params={params} />
+      |       ^
+  233 |     </Suspense>
+  234 |   )
+  235 | } {
+  digest: '4232131603'
+}
+Error: Route "/items/[id]": Next.js encountered the unstable value `Date.now()` while prerendering.
+
+This value can change between renders, so it must be either prerendered or computed later.
+
+Ways to fix this:
+  - [dynamic] Render at request time by adding a dynamic data access (e.g. `await connection()`) before this call
+  - [cache] Prerender and cache the value with `"use cache"`
+  - [client] Render the value on the client with `"use client"`
+  - [measure] If the value is for telemetry, use a timing API such as `performance.now()`
+
+Learn more: https://nextjs.org/docs/messages/blocking-prerender-current-time
+    at ItemDetailPage (src/app/items/[id]/page.tsx:232:7)
+  230 |   return (
+  231 |     <Suspense fallback={<div className="max-w-3xl mx-auto h-96 bg-white rounded-2xl border border-gray-200 animate-pulse" />}>
+> 232 |       <ItemContent params={params} />
+      |       ^
+  233 |     </Suspense>
+  234 |   )
+  235 | } {
+  digest: '4232131603'
+}
+ GET / 200 in 2.5s (next.js: 7ms, proxy.ts: 5ms, application-code: 2.5s)
+ GET /login 200 in 107ms (next.js: 5ms, proxy.ts: 9ms, application-code: 93ms)
+ GET /items/dcf31e5a-9d83-4dfd-98d0-f471cbaffc73 200 in 1575ms (next.js: 16ms, proxy.ts: 6ms, generate-params: 37ms, application-code: 1516ms)
+ GET / 200 in 3.1s (next.js: 4ms, proxy.ts: 1755ms, application-code: 1324ms)
+ GET /login 200 in 177ms (next.js: 9ms, proxy.ts: 8ms, application-code: 161ms)
+ GET / 200 in 8.7s (next.js: 5ms, proxy.ts: 3.8s, application-code: 4.9s)
+✓ Compiled in 72ms
+✓ Compiled in 3.7s
+ GET / 200 in 3.0s (next.js: 1966ms, proxy.ts: 921ms, application-code: 116ms)
+✓ Compiled in 3.1s
+ GET / 200 in 2.4s (next.js: 1783ms, proxy.ts: 525ms, application-code: 107ms)
+✓ Compiled in 1764ms
+ GET / 200 in 4.7s (next.js: 1868ms, proxy.ts: 2.8s, application-code: 73ms)
+✓ Compiled in 63ms
+✓ Compiled in 34ms
+✓ Compiled in 109ms
+[?25h

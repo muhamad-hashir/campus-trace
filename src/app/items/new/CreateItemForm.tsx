@@ -1,10 +1,18 @@
 'use client'
 
-import { useState, useSyncExternalStore } from 'react'
+import { useState, useSyncExternalStore, useRef } from 'react'
 import { useRouter } from 'next/navigation'
 import { createClient } from '@/utils/supabase/client'
 import imageCompression from 'browser-image-compression'
+import {
+  validateImageFile,
+  validateImageBlob,
+  ALLOWED_EXTENSIONS,
+} from '@/utils/imageValidation'
 import { Loader2, ImagePlus, MapPin, X, Check } from 'lucide-react'
+
+const inputClasses =
+  'w-full px-3.5 py-2.5 text-sm text-gray-900 bg-white border border-gray-200 rounded-lg hover:border-gray-300 focus:outline-none focus:border-gray-900 focus:ring-2 focus:ring-gray-900/10 transition-colors'
 
 const CATEGORIES = [
   'Electronics',
@@ -32,8 +40,30 @@ function useTodayISODate() {
   )
 }
 
+// Map raw Supabase/network errors to messages a student can act on.
+function friendlyUploadError(err: unknown): string {
+  const message = err instanceof Error ? err.message.toLowerCase() : ''
+
+  if (message.includes('row-level security') || message.includes('permission')) {
+    return 'You do not have permission to do that. Please sign in again and retry.'
+  }
+  if (message.includes('payload too large') || message.includes('exceeded')) {
+    return 'The photo or post is too large. Try a smaller photo.'
+  }
+  if (message.includes('fetch') || message.includes('network')) {
+    return 'Connection problem. Check your internet and try again.'
+  }
+  if (message.includes('duplicate')) {
+    return 'This post was already created. Check your dashboard.'
+  }
+  return err instanceof Error && err.message
+    ? err.message
+    : 'Something went wrong. Please try again.'
+}
+
 export default function CreateItemForm() {
   const router = useRouter()
+  const currentUserRef = useRef<{ id: string } | null>(null)
 
   const [title, setTitle] = useState('')
   const [itemType, setItemType] = useState<ItemType>('LOST')
@@ -59,8 +89,11 @@ export default function CreateItemForm() {
       return
     }
 
-    if (!file.type.startsWith('image/')) {
-      setError('Please select an image file.')
+    // First pass: extension, declared MIME type, and size — all synchronous.
+    // A renamed .zip or .exe fails here immediately.
+    const result = validateImageFile(file)
+    if (!result.ok) {
+      setError(result.reason)
       e.target.value = ''
       return
     }
@@ -87,19 +120,44 @@ export default function CreateItemForm() {
     const supabase = createClient()
 
     // Double-check the user is signed in (middleware also guards this route).
-    const {
-      data: { user },
-    } = await supabase.auth.getUser()
+    try {
+      const {
+        data: { user },
+      } = await supabase.auth.getUser()
+      if (!user) {
+        setError('You must be signed in to post an item.')
+        return
+      }
+      currentUserRef.current = user
+    } catch {
+      setError('Could not reach the server. Check your connection and try again.')
+      return
+    }
+
+    const user = currentUserRef.current
     if (!user) {
       setError('You must be signed in to post an item.')
       return
     }
 
     try {
-      // 1. Compress the image client-side before any upload.
+      // 1. Validate content and re-encode the image client-side before any upload.
       let imageUrl: string | null = null
       if (imageFile) {
+        // Content check: the file's actual bytes must be a real image. This
+        // catches archives/executables renamed to .jpg that the first pass
+        // could not see (a spoofed browser MIME type).
         setStage('compressing')
+        const blobResult = await validateImageBlob(imageFile)
+        if (!blobResult.ok) {
+          setError(blobResult.reason)
+          setStage('idle')
+          removeImage()
+          return
+        }
+
+        // Re-encode through the compression pipeline: canvas output is a
+        // genuine JPEG, so any non-image payload is stripped before upload.
         const compressed = await imageCompression(imageFile, {
           maxSizeMB: 0.6,
           maxWidthOrHeight: 1600,
@@ -107,11 +165,18 @@ export default function CreateItemForm() {
           fileType: 'image/jpeg',
         })
 
-        // 2. Upload to the item-images storage bucket.
+        // Final gate: verify the bytes that will actually be uploaded.
+        const compressedCheck = await validateImageBlob(compressed)
+        if (!compressedCheck.ok) {
+          setError(compressedCheck.reason)
+          setStage('idle')
+          removeImage()
+          return
+        }
+
+        // 2. Upload the verified JPEG to the item-images storage bucket.
         setStage('uploading')
-        const ext = (compressed.name.split('.').pop() ?? 'jpg').toLowerCase()
-        const safeName = compressed.name.replace(/[^a-zA-Z0-9._-]/g, '_').split('.')[0]
-        const path = `${user.id}/${Date.now()}-${safeName}.${ext === 'jpeg' ? 'jpg' : ext}`
+        const path = `${user.id}/${Date.now()}-photo.jpg`
 
         const { error: uploadError } = await supabase.storage
           .from('item-images')
@@ -154,9 +219,7 @@ export default function CreateItemForm() {
       router.push('/items/' + data.id)
       router.refresh()
     } catch (err) {
-      setError(
-        err instanceof Error ? err.message : 'Something went wrong. Please try again.'
-      )
+      setError(friendlyUploadError(err))
       setStage('idle')
       return
     }
@@ -175,10 +238,10 @@ export default function CreateItemForm() {
 
   return (
     <div className="max-w-2xl mx-auto">
-      <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-gray-200">
+      <div className="bg-white p-6 sm:p-8 rounded-xl border border-gray-200">
         <div className="mb-8">
-          <h1 className="text-2xl font-extrabold text-gray-900">Post an Item</h1>
-          <p className="text-gray-500 mt-1">
+          <h1 className="text-2xl font-semibold tracking-tight text-gray-900">Post an Item</h1>
+          <p className="text-sm text-gray-600 mt-1">
             Report something you lost or found around campus.
           </p>
         </div>
@@ -193,25 +256,27 @@ export default function CreateItemForm() {
               <button
                 type="button"
                 onClick={() => setItemType('LOST')}
-                className={`flex items-center justify-center gap-2 px-4 py-3 rounded-xl border-2 font-medium transition ${
+                aria-pressed={itemType === 'LOST'}
+                className={`flex items-center justify-center gap-2 px-4 py-3 rounded-lg border text-sm font-medium transition-colors ${
                   itemType === 'LOST'
-                    ? 'border-red-500 bg-red-50 text-red-700'
-                    : 'border-gray-200 text-gray-600 hover:border-gray-300'
+                    ? 'border-red-500 bg-red-50 text-red-700 ring-1 ring-red-500'
+                    : 'border-gray-200 text-gray-600 hover:border-gray-300 hover:text-gray-900'
                 }`}
               >
-                {itemType === 'LOST' && <Check className="w-4 h-4" />}
+                {itemType === 'LOST' && <Check className="w-4 h-4" aria-hidden="true" />}
                 I Lost Something
               </button>
               <button
                 type="button"
                 onClick={() => setItemType('FOUND')}
-                className={`flex items-center justify-center gap-2 px-4 py-3 rounded-xl border-2 font-medium transition ${
+                aria-pressed={itemType === 'FOUND'}
+                className={`flex items-center justify-center gap-2 px-4 py-3 rounded-lg border text-sm font-medium transition-colors ${
                   itemType === 'FOUND'
-                    ? 'border-green-500 bg-green-50 text-green-700'
-                    : 'border-gray-200 text-gray-600 hover:border-gray-300'
+                    ? 'border-emerald-500 bg-emerald-50 text-emerald-700 ring-1 ring-emerald-500'
+                    : 'border-gray-200 text-gray-600 hover:border-gray-300 hover:text-gray-900'
                 }`}
               >
-                {itemType === 'FOUND' && <Check className="w-4 h-4" />}
+                {itemType === 'FOUND' && <Check className="w-4 h-4" aria-hidden="true" />}
                 I Found Something
               </button>
             </div>
@@ -230,7 +295,7 @@ export default function CreateItemForm() {
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               placeholder="e.g. Black Dell laptop charger"
-              className="w-full px-4 py-2.5 text-gray-900 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+              className={inputClasses}
             />
           </div>
 
@@ -245,7 +310,7 @@ export default function CreateItemForm() {
                 required
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
-                className="w-full px-4 py-2.5 text-gray-900 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+                className={inputClasses}
               >
                 <option value="" disabled>
                   Select a category
@@ -263,7 +328,7 @@ export default function CreateItemForm() {
                 Location
               </label>
               <div className="relative">
-                <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+                <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" aria-hidden="true" />
                 <input
                   id="location"
                   type="text"
@@ -272,7 +337,7 @@ export default function CreateItemForm() {
                   value={location}
                   onChange={(e) => setLocation(e.target.value)}
                   placeholder="Library 2nd Floor"
-                  className="w-full pl-9 pr-4 py-2.5 text-gray-900 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+                  className='w-full pl-9 pr-3.5 py-2.5 text-sm text-gray-900 bg-white border border-gray-200 rounded-lg hover:border-gray-300 focus:outline-none focus:border-gray-900 focus:ring-2 focus:ring-gray-900/10 transition-colors'
                 />
               </div>
             </div>
@@ -292,7 +357,7 @@ export default function CreateItemForm() {
               required
               value={dateOccurred}
               onChange={(e) => setDateOccurred(e.target.value)}
-              className="w-full sm:w-56 px-4 py-2.5 text-gray-900 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+              className={`${inputClasses} sm:w-56`}
             />
           </div>
 
@@ -312,7 +377,7 @@ export default function CreateItemForm() {
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               placeholder="Describe the item: color, brand, stickers, contents, where exactly it was left or picked up..."
-              className="w-full px-4 py-2.5 text-gray-900 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition resize-none"
+              className={`${inputClasses} resize-none leading-relaxed`}
             />
           </div>
 
@@ -327,24 +392,24 @@ export default function CreateItemForm() {
                 <img
                   src={imagePreview}
                   alt="Selected item preview"
-                  className="h-40 rounded-xl border border-gray-200 object-cover"
+                  className="h-40 rounded-lg border border-gray-200 object-cover"
                 />
                 <button
                   type="button"
                   onClick={removeImage}
                   aria-label="Remove image"
-                  className="absolute -top-2 -right-2 w-7 h-7 bg-white border border-gray-200 rounded-full shadow flex items-center justify-center text-gray-500 hover:text-red-600 hover:border-red-200 transition"
+                  className="absolute -top-2 -right-2 w-7 h-7 bg-white border border-gray-200 rounded-full shadow-sm flex items-center justify-center text-gray-500 hover:text-red-600 hover:border-red-300 transition-colors"
                 >
-                  <X className="w-4 h-4" />
+                  <X className="w-4 h-4" aria-hidden="true" />
                 </button>
               </div>
             ) : (
-              <label className="flex flex-col items-center justify-center gap-2 h-32 rounded-xl border-2 border-dashed border-gray-300 hover:border-blue-400 hover:bg-blue-50/40 text-gray-500 cursor-pointer transition">
-                <ImagePlus className="w-6 h-6" />
+              <label className="flex flex-col items-center justify-center gap-2 h-32 rounded-lg border border-dashed border-gray-300 hover:border-gray-400 hover:bg-gray-50 text-gray-500 cursor-pointer transition-colors">
+                <ImagePlus className="w-5 h-5" aria-hidden="true" />
                 <span className="text-sm">Click to choose a photo</span>
                 <input
                   type="file"
-                  accept="image/*"
+                  accept={ALLOWED_EXTENSIONS.join(',')}
                   onChange={handleImageChange}
                   className="hidden"
                 />
@@ -361,9 +426,9 @@ export default function CreateItemForm() {
           <button
             type="submit"
             disabled={busy}
-            className="w-full sm:w-auto flex items-center justify-center gap-2 bg-blue-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-blue-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full sm:w-auto flex items-center justify-center gap-2 bg-gray-900 text-white px-7 py-2.5 rounded-lg text-sm font-medium hover:bg-gray-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            {busy && <Loader2 className="w-4 h-4 animate-spin" />}
+            {busy && <Loader2 className="w-4 h-4 animate-spin" aria-hidden="true" />}
             {stageLabel}
           </button>
         </form>

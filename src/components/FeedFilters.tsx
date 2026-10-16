@@ -78,34 +78,39 @@ export default function FeedFilters() {
   return (
     <div className="flex flex-col sm:flex-row gap-3">
       {/* Search */}
-      <div className="flex items-center bg-white border border-gray-300 rounded-lg overflow-hidden focus-within:ring-2 focus-within:ring-blue-500 transition flex-grow">
+      <div className="flex items-center bg-white border border-gray-200 rounded-lg overflow-hidden focus-within:border-gray-900 transition-colors flex-grow">
+        <label htmlFor="feed-search" className="sr-only">
+          Search items
+        </label>
         <div className="pl-3 text-gray-400">
-          <Search className="w-5 h-5" />
+          <Search className="w-4 h-4" aria-hidden="true" />
         </div>
         <input
+          id="feed-search"
           type="text"
           value={queryValue}
           onChange={(e) => handleQueryChange(e.target.value)}
-          placeholder="Search for keys, student IDs, laptops..."
-          className="w-full bg-transparent px-3 py-2.5 text-gray-900 placeholder:text-gray-400 outline-none"
+          placeholder="Search keys, student IDs, laptops..."
+          className="w-full bg-transparent px-3 py-2.5 text-sm text-gray-900 placeholder:text-gray-400 outline-none"
         />
       </div>
 
       {/* Type Filter */}
-      <div className="flex bg-white border border-gray-300 rounded-lg p-1 gap-1">
+      <div
+        role="group"
+        aria-label="Filter by type"
+        className="flex bg-gray-100 rounded-lg p-1 gap-1 self-start sm:self-auto"
+      >
         {typeOptions.map((option) => (
           <button
             key={option.label}
             type="button"
             onClick={() => setType(option.value)}
-            className={`px-4 py-1.5 rounded-md text-sm font-medium transition ${
+            aria-pressed={currentType === option.value}
+            className={`px-4 py-1.5 rounded-md text-sm font-medium transition-colors ${
               currentType === option.value
-                ? option.value === 'lost'
-                  ? 'bg-red-100 text-red-700'
-                  : option.value === 'found'
-                    ? 'bg-green-100 text-green-700'
-                    : 'bg-gray-900 text-white'
-                : 'text-gray-600 hover:bg-gray-100'
+                ? 'bg-white text-gray-900 shadow-sm'
+                : 'text-gray-600 hover:text-gray-900'
             }`}
           >
             {option.label}
@@ -115,9 +120,10 @@ export default function FeedFilters() {
 
       {/* Category Filter */}
       <select
+        aria-label="Filter by category"
         value={currentCategory}
         onChange={(e) => setCategory(e.target.value)}
-        className="bg-white border border-gray-300 rounded-lg px-3 py-2.5 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+        className="bg-white border border-gray-200 rounded-lg px-3 py-2.5 text-sm text-gray-900 hover:border-gray-300 focus:outline-none focus:border-gray-900 transition-colors"
       >
         <option value="">All Categories</option>
         {CATEGORIES.map((cat) => (
